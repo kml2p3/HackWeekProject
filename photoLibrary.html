@@ -34,8 +34,7 @@
     
     	<link rel="stylesheet" href="hackStyle.css">
         
-        <script 
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
 
     </head>
@@ -64,5 +63,28 @@
             </div>
           </div>
         </nav>
+        <div class="container space">
+            <h1>Photo Gallery</h1>
+            
+        <div id="gallery">
+            
+            <script>
+                $(document).ready(function(){ 
+                    var folder = "Images";
+
+                    $.ajax({
+                        url : folder,
+                        success: function (data) {
+                            $(data).find("a").attr("href", function (i, val) {
+                                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                                    $("body").append( "<img src='" + val +"' class='img-rounded' alt='Cinque Terre' width='304' height='236'>" );
+                                } 
+                            });
+                        }
+                    });
+                });
+            </script>
+        </div>
+        </div>
 	</body>
 </html>
