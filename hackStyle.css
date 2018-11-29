@@ -1,0 +1,21 @@
+/* Created by Professor Wergeles for CS4830 at the University of Missouri */
+.done-true {
+  	text-decoration: line-through;
+  	color: grey;
+}
+
+.fullWidth {
+    width: 100%;
+}
+.lav {
+    background-color: lavender; 
+}
+.lavBlush {
+    background-color: lavenderblush;
+}
+body{
+    position: relative; 
+}
+.space {
+    margin-top: 50px; 
+}

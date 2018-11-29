@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="todoApp" lang="en">
+    <head>
+        <title>Hack Week Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet"
+		  	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		  	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		  	crossorigin="anonymous">
+          
+		<!-- Optional theme -->
+		<link rel="stylesheet"
+				href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+				integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+				crossorigin="anonymous">
+        
+		<script	src="https://code.jquery.com/jquery-3.2.1.min.js"
+				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+				crossorigin="anonymous"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+				integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+				crossorigin="anonymous"></script>
+ 
+ 		<!-- angular cdn -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    
+    	<script src="hackScript.js"></script>
+    
+    	<link rel="stylesheet" href="hackStyle.css">
+        
+        <script 
+				src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </head>
+    <body class="container" data-spy="scroll" data-target=".navbar" data-offset="0">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                	data-target="#myNavbar">
+                	
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+            <div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li><a href="checklist.html">Checklist</a></li>
+                  <li><a href="photoLibrary.html">Photo Gallery</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+		
+		<section class="jumbotron">
+        	<h2>Travel Checklist</h2>
+			<p>Keep a list of everything you need to do as you plan your trip! You can also use this list to keep track of the items you need to pack. If you need a little help, there is an example list below.</p>
+          	<div ng-controller="TodoListController as todoList">
+        
+          		<span>{{todoList.remaining()}} of {{todoList.todos.length}} items left to do!</span>
+          		[ <a href="" ng-click="todoList.archive()">Clear List</a> ]
+          
+          		<ul class="unstyled">
+            		<li ng-repeat="todo in todoList.todos track by $index">
+              		<label class="checkbox">
+                		<input type="checkbox" ng-model="todo.done" ng-click="todoList.refresh(this)">
+                		<span class="done-{{todo.done}}">{{todo.text}}</span>
+              		</label>
+            		</li>
+          		</ul>
+          		<form ng-submit="todoList.addTodo()">
+            		<input type="text" ng-model="todoList.todoText"  size="30"
+                   		placeholder="Add new item here" ng-required="true">
+            		<input class="btn btn-info" type="submit" value="Add">
+          		</form>
+			</div>
+			<hr>
+			<h4>Example List</h4>
+			<ul class="unstyled">
+				<li>Book a hotel</li>
+				<li>Update passports</li>
+				<li>Book flight</li>
+				<li>Make list of activities to try</li>
+			</ul>
+    	</section>
+	</body>
+</html>
