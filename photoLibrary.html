@@ -5,20 +5,20 @@
 		<link rel="shortcut icon" type="image/x-icon" href="Images/beach.png" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet"
 		  	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		  	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 		  	crossorigin="anonymous">
-          
+
 		<!-- Optional theme -->
 		<link rel="stylesheet"
 				href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 				integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 				crossorigin="anonymous">
-        
+
 		<script	src="https://code.jquery.com/jquery-3.2.1.min.js"
 				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 				crossorigin="anonymous"></script>
@@ -27,16 +27,16 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 				integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 				crossorigin="anonymous"></script>
- 
+
  		<!-- angular cdn -->
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    
+
     	<script src="hackScript.js"></script>
-    
+
     	<link rel="stylesheet" href="hackStyle.css">
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
+
 
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="0">
@@ -44,12 +44,12 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
                 	data-target="#myNavbar">
-                	
+
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
+                  <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="index.html">Home</a>
             </div>
@@ -58,7 +58,7 @@
                 <ul class="nav navbar-nav">
                   <li><a href="checklist.html">Checklist</a></li>
                   <li><a href="photoLibrary.html">Photo Gallery</a></li>
-                  
+
                 </ul>
               </div>
             </div>
@@ -66,20 +66,20 @@
         </nav>
         <div class="container space">
             <h1>Photo Gallery</h1>
-            
+
         <div id="gallery">
-            
+
             <script>
-                $(document).ready(function(){ 
-                    var folder = "Images";
+                $(document).ready(function(){
+                    var folder = "Images/";
 
                     $.ajax({
                         url : folder,
                         success: function (data) {
                             $(data).find("a").attr("href", function (i, val) {
-                                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                                    $("body").append( "<img src='" + val +"' class='img-rounded' alt='Cinque Terre' width='400' height='225'>" );
-                                } 
+                                if( val.match(/\.(jpe?g|png|gif)$/) ) {
+                                    $("body").append( "<img src='Images/" + val +"' class='img-rounded' alt='Cinque Terre' width='400' height='225'>" );
+                                }
                             });
                         }
                     });
